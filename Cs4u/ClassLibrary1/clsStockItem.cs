@@ -66,5 +66,10 @@ namespace ClassLibrary1
         public string StockItemDescription { get; set; }
 
         public string StockName { get; set; }
+
+        internal bool Find(int StockNo)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
