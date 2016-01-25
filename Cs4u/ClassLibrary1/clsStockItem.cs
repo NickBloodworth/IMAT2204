@@ -9,6 +9,7 @@ namespace ClassLibrary1
     {
         public string ItemPrice { get; set; }
 
+
         public Boolean Valid(string ItemPrice)
         {
             //var to record any errors found in ItemPrice assuming all is ok
@@ -70,6 +71,28 @@ namespace ClassLibrary1
         internal bool Find(int StockNo)
         {
             throw new NotImplementedException();
+        }
+
+
+
+
+        public bool PriceValid(string SomePrice)
+        {
+            Boolean OK = true;
+            decimal RealPrice;
+            try
+            {
+                RealPrice = Convert.ToDecimal(SomePrice);
+                if (RealPrice < 0 | RealPrice>1000000)
+                {
+                    OK = false;
+                }
+            }
+            catch
+            {
+                OK = false;
+            }
+            return OK;
         }
     }
 }
