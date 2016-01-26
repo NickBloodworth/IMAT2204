@@ -125,6 +125,18 @@ namespace CS4u_Test_Framework
         OK = AStockItem.PriceValid("1000000.00");
         Assert.IsTrue(OK);
     }
+    [TestMethod]
+    //used to test the prsence of the valid method
+    public void PriceMinBoundary()
+    {
+        //create and instance of the class
+        clsStockItem AStockItem = new clsStockItem();
+
+        Boolean OK;
+        //test to see if the valid method exists
+        OK = AStockItem.PriceValid("0.01");
+        Assert.IsTrue(OK);
+    }
 
 
     [TestMethod]
@@ -168,41 +180,8 @@ namespace CS4u_Test_Framework
             //assert that the outcome should be false
             Assert.IsFalse(OK);
         }*/
-        [TestMethod]
-        //test that the item price  validation throws an error when item price is more than 10 characters
-        public void ItemPriceMaxPlusOne ()
-        {
-            //create and instance of the class
-            clsStockItem AstockItem = new clsStockItem();
-            //create a varaible to record the result of the validation test
-            Boolean OK;
-            //create a variable to store the test data
-            string SomeText = "";
-            //pad the data to the required number of characters
-            SomeText = SomeText.PadLeft(11);
-            //test the valid method with a two character string
-            OK = AstockItem.Valid(SomeText);
-            //assert that the outcome should be true
-            Assert.IsFalse(OK);
-
-        }
-        [TestMethod]
-        public void ItemPriceExtremeMax()
-        {
-
-            //create an instance of the class
-            clsStockItem AStockItem = new clsStockItem();
-            //create a variable to record the result of the validation test
-            Boolean OK;
-            //create a variable to store the test data
-            string SomeText = "";
-            //pad the data to the required number of characters
-            SomeText = SomeText.PadLeft(100);
-            //test the valid method with a two character string
-            OK = AStockItem.Valid(SomeText);
-            //assert that the outcome should be true
-            Assert.IsFalse(OK);
-        }
+        
+        
        /* [TestMethod]
 
         //used to test the StockCode property of the class
@@ -223,45 +202,27 @@ namespace CS4u_Test_Framework
             clsStockItem AStockItem = new clsStockItem();
             //create a variable to store the code of an item
             string SomeCode;
-            //assign an item price to the variable
+            //assign an item code to the variable
             SomeCode = "12345";
-            //try to send some data to the ItemPrice property
+            //try to send some data to the StockCode property
             AStockItem.StockCode = SomeCode;
             //check to see that the data in the variable and the propery are the sam
             Assert.AreEqual(AStockItem.StockCode, SomeCode);
 
         }
         [TestMethod]
-        public void StockCodeMinLessOne()
+        //used to test the presence of the valid method
+        public void StockCodeValidOK()
         {
-
-            //create an instance of the class
+            //create and instance of the class
             clsStockItem AStockItem = new clsStockItem();
-            //create a variable to record the result of the validation test
             Boolean OK;
-            //test the valid method with a blank string
-            OK = AStockItem.Valid("");
-            //assert that the outcome should be flase
-            Assert.IsFalse(OK);
-        }
-        //[TestMethod]
-        ////test that the Stock Code  validation throws an error when item price is more than 8 characters
-        //public void StockCodeMaxPlusOne()
-        //{
-        //    //create and instance of the class
-        //    clsStockItem AstockItem = new clsStockItem();
-        //    //create a varaible to record the result of the validation test
-        //    Boolean OK;
-        //    //create a variable to store the test data
-        //    string SomeText = "";
-        //    //pad the data to the required number of characters
-        //    SomeText = SomeText.PadLeft(9);
-        //    //test the valid method with a two character string
-        //    OK = AstockItem.Valid(SomeText);
-        //    //assert that the outcome should be true
-        //    Assert.IsFalse(OK);
+            //test to see if the valid method exists
+            OK = AStockItem.StockCodeValid("12345");
+            Assert.IsTrue(OK);
 
-        //}
+        }
+        
         [TestMethod]
         public void StockCodeExtremeMax()
         {
@@ -271,28 +232,175 @@ namespace CS4u_Test_Framework
             //create a variable to record the result of the validation test
             Boolean OK;
             //create a variable to store the test data
-            string SomeText = "";
+            //string SomeText = "";
             //pad the data to the required number of characters
-            SomeText = SomeText.PadLeft(50);
-            //test the valid method with a two character string
-            OK = AStockItem.Valid(SomeText);
-            //assert that the outcome should be true
+            //SomeText = SomeText.PadLeft(50);
+            //test to see if the valid method exists
+            OK = AStockItem.StockCodeValid("1234567891234567891234567891111");
+            //assert that the outcome should be false
+            Assert.IsFalse(OK);
+        }
+        //[TestMethod]
+        ////used to test the prsence of the valid method
+        //public void StockCodeExtremeMin()
+        //{
+        //    //create and instance of the class
+        //    clsStockItem AStockItem = new clsStockItem();
+
+        //    Boolean OK;
+        //    //test to see if the valid method exists
+        //    OK = AStockItem.StockCodeValid("-1000");
+        //    Assert.IsFalse(OK);
+        //}
+        [TestMethod]
+        ////used to test the prsence of the valid method
+        public void StockCodeMinLessOne()
+        {
+           //create and instance of the class
+           clsStockItem AStockItem = new clsStockItem();
+
+           Boolean OK;
+            //test to see if the valid method exists
+            OK = AStockItem.StockCodeValid("");
             Assert.IsFalse(OK);
         }
         [TestMethod]
+        //used to test the prsence of the valid method
+        public void StockCodeMinBoundary()
+        {
+            //create and instance of the class
+            clsStockItem AStockItem = new clsStockItem();
+
+            Boolean OK;
+            //test to see if the valid method exists
+            OK = AStockItem.StockCodeValid("1");
+            Assert.IsTrue(OK);
+        }
+        [TestMethod]
+        //used to test the prsence of the valid method
+        public void StockCodeMinPlusOne()
+        {
+            //create and instance of the class
+            clsStockItem AStockItem = new clsStockItem();
+
+            Boolean OK;
+            //test to see if the valid method exists
+            OK = AStockItem.StockCodeValid("2");
+            Assert.IsTrue(OK);
+        }
+        [TestMethod]
+        //used to test the prsence of the valid method
+        public void StockCodeMaxBoundary()
+        {
+            //create and instance of the class
+            clsStockItem AStockItem = new clsStockItem();
+
+            Boolean OK;
+            //test to see if the valid method exists
+            OK = AStockItem.StockCodeValid("8");
+            Assert.IsTrue(OK);
+        }
+        [TestMethod]
+        //used to test the prsence of the valid method
+        public void StockCodeMaxBoundaryLessOne()
+        {
+            //create and instance of the class
+            clsStockItem AStockItem = new clsStockItem();
+
+            Boolean OK;
+            //test to see if the valid method exists
+            OK = AStockItem.StockCodeValid("7");
+            Assert.IsTrue(OK);
+        }
+        [TestMethod]
+        //used to test the prsence of the valid method
+        public void StockCodeMid()
+        {
+            //create and instance of the class
+            clsStockItem AStockItem = new clsStockItem();
+
+            Boolean OK;
+            //test to see if the valid method exists
+            OK = AStockItem.StockCodeValid("4");
+            Assert.IsTrue(OK);
+        }
+        
+    //    [TestMethod]
+    //////used to test the prsence of the valid method
+    //public void PriceMinBoundary()
+    //{
+    //   //create and instance of the class
+    //   clsStockItem AStockItem = new clsStockItem();
+
+    //    Boolean OK;
+    //    //test to see if the valid method exists
+    //   OK = AStockItem.PriceValid("0.01");
+    //    Assert.IsTrue(OK);
+    //}
+
+        [TestMethod]
+
+        //used to test the Item Price property of the class
         public void StockLevel()
         {
+
             //create an instance of the class
             clsStockItem AStockItem = new clsStockItem();
-            //create a variable to store the code of an item
+            //create a variable to store the price of an item
             string SomeLevel;
             //assign an item price to the variable
             SomeLevel = "12";
             //try to send some data to the ItemPrice property
-            AStockItem.StockLevel = SomeLevel;
+            AStockItem.StockLevel = "12";
             //check to see that the data in the variable and the propery are the sam
             Assert.AreEqual(AStockItem.StockLevel, SomeLevel);
+        }
+        [TestMethod]
+        //used to test the prsence of the valid method
+        public void StockLevelValidOK()
+        {
+            //create and instance of the class
+            clsStockItem AStockItem = new clsStockItem();
+            Boolean OK;
+            //test to see if the valid method exists
+            OK = AStockItem.PriceValid("12");
+            Assert.IsTrue(OK);
+        }
+        //[TestMethod]
+        ////used to test the prsence of the valid method
+        //public void StockLevelMinLessOne()
+        //{
+        //    //create and instance of the class
+        //    clsStockItem AStockItem = new clsStockItem();
 
+        //    Boolean OK;
+        //    //test to see if the valid method exists
+        //    OK = AStockItem.StockLevelValid("-1");
+        //    Assert.IsFalse(OK);
+        //}
+        [TestMethod]
+        //used to test the prsence of the valid method
+        public void StockLevelMinBoundary()
+        {
+            //create and instance of the class
+            clsStockItem AStockItem = new clsStockItem();
+
+            Boolean OK;
+            //test to see if the valid method exists
+            OK = AStockItem.PriceValid("0");
+            Assert.IsTrue(OK);
+        }
+        [TestMethod]
+        //used to test the prsence of the valid method
+        public void StockLevelMinPlusOne()
+        {
+            //create and instance of the class
+            clsStockItem AStockItem = new clsStockItem();
+
+            Boolean OK;
+            //test to see if the valid method exists
+            OK = AStockItem.StockLevelValid("1");
+            Assert.IsTrue(OK);
         }
         //[TestMethod]
         //public void StockLevelMinLessOne()
@@ -320,10 +428,62 @@ namespace CS4u_Test_Framework
             //pad the data to the required number of characters
             SomeText = SomeText.PadLeft(1000000);
             //test the valid method with a two character string
-            OK = AStockItem.Valid(SomeText);
+            OK = AStockItem.StockCodeValid(SomeText);
             //assert that the outcome should be true
             Assert.IsFalse(OK);
         }
+        [TestMethod]
+        public void StockLevelMaxLessOne()
+        {
+
+            //create an instance of the class
+            clsStockItem AStockItem = new clsStockItem();
+            //create a variable to record the result of the validation test
+            Boolean OK;
+            //create a variable to store the test data
+            string SomeText = "";
+            //pad the data to the required number of characters
+            SomeText = SomeText.PadLeft(999);
+            //test the valid method with a two character string
+            OK = AStockItem.StockLevelValid(SomeText);
+            //assert that the outcome should be true
+            Assert.IsTrue(OK);
+        }
+        [TestMethod]
+        public void StockLevelMid()
+        {
+
+            //create an instance of the class
+            clsStockItem AStockItem = new clsStockItem();
+            //create a variable to record the result of the validation test
+            Boolean OK;
+            //create a variable to store the test data
+            string SomeText = "";
+            //pad the data to the required number of characters
+            SomeText = SomeText.PadLeft(500);
+            //test the valid method with a two character string
+            OK = AStockItem.StockLevelValid(SomeText);
+            //assert that the outcome should be true
+            Assert.IsTrue(OK);
+        }
+        [TestMethod]
+        public void StockLevelMaxBoundary()
+        {
+
+            //create an instance of the class
+            clsStockItem AStockItem = new clsStockItem();
+            //create a variable to record the result of the validation test
+            Boolean OK;
+            //create a variable to store the test data
+            string SomeText = "";
+            //pad the data to the required number of characters
+            SomeText = SomeText.PadLeft(1000);
+            //test the valid method with a two character string
+            OK = AStockItem.StockLevelValid(SomeText);
+            //assert that the outcome should be true
+            Assert.IsTrue(OK);
+        }
+
         [TestMethod]
         //test that the Stock Code  validation throws an error when item price is more than 8 characters
         public void StockLevelMaxPlusOne()
@@ -337,9 +497,21 @@ namespace CS4u_Test_Framework
             //pad the data to the required number of characters
             SomeText = SomeText.PadLeft(1001);
             //test the valid method with a two character string
-            OK = AstockItem.Valid(SomeText);
+            OK = AstockItem.StockLevelValid(SomeText);
             //assert that the outcome should be true
             Assert.IsFalse(OK);
+
+        }
+        [TestMethod]
+        //used to test the presence of the valid method
+        public void StockItemDescriptionValidOK()
+        {
+            //create and instance of the class
+            clsStockItem AStockItem = new clsStockItem();
+            Boolean OK;
+            //test to see if the valid method exists
+            OK = AStockItem.StockItemDescriptionValid("PCPackage");
+            Assert.IsTrue(OK);
 
         }
         [TestMethod]
@@ -359,6 +531,102 @@ namespace CS4u_Test_Framework
         }
         [TestMethod]
         //test that the Stock Code  validation throws an error when item price is more than 8 characters
+        public void StockItemDescriptionMid()
+        {
+            //create and instance of the class
+            clsStockItem AstockItem = new clsStockItem();
+            //create a varaible to record the result of the validation test
+            Boolean OK;
+            //create a variable to store the test data
+            string SomeText = "";
+            //pad the data to the required number of characters
+            SomeText = SomeText.PadLeft(50);
+            //test the valid method with a two character string
+            OK = AstockItem.StockItemDescriptionValid(SomeText);
+            //assert that the outcome should be true
+            Assert.IsTrue(OK);
+
+        }
+        [TestMethod]
+        //test that the Stock Code  validation throws an error when item price is more than 8 characters
+        public void StockItemDescriptionMaxLessOne()
+        {
+            //create and instance of the class
+            clsStockItem AstockItem = new clsStockItem();
+            //create a varaible to record the result of the validation test
+            Boolean OK;
+            //create a variable to store the test data
+            string SomeText = "";
+            //pad the data to the required number of characters
+            SomeText = SomeText.PadLeft(99);
+            //test the valid method with a two character string
+            OK = AstockItem.StockItemDescriptionValid(SomeText);
+            //assert that the outcome should be true
+            Assert.IsTrue(OK);
+
+        }
+        [TestMethod]
+        //test that the Stock Code  validation throws an error when item price is more than 8 characters
+        public void StockItemDescriptionMaxBoundary()
+        {
+            //create and instance of the class
+            clsStockItem AstockItem = new clsStockItem();
+            //create a varaible to record the result of the validation test
+            Boolean OK;
+            //create a variable to store the test data
+            string SomeText = "";
+            //pad the data to the required number of characters
+            SomeText = SomeText.PadLeft(100);
+            //test the valid method with a two character string
+            OK = AstockItem.StockItemDescriptionValid(SomeText);
+            //assert that the outcome should be true
+            Assert.IsTrue(OK);
+
+        }
+        [TestMethod]
+        //test that the Stock Code  validation throws an error when item price is more than 8 characters
+        public void StockItemDescriptionMinBoundary()
+        {
+            //create and instance of the class
+            clsStockItem AstockItem = new clsStockItem();
+            //create a varaible to record the result of the validation test
+            Boolean OK;
+            //create a variable to store the test data
+            string SomeText = "";
+            //pad the data to the required number of characters
+            SomeText = SomeText.PadLeft(5);
+            //test the valid method with a two character string
+            OK = AstockItem.StockItemDescriptionValid(SomeText);
+            //assert that the outcome should be true
+            Assert.IsTrue(OK);
+
+        }
+        [TestMethod]
+        //used to test the prsence of the valid method
+        public void StockItemDescriptionMinLessOne()
+        {
+            //create and instance of the class
+            clsStockItem AStockItem = new clsStockItem();
+
+            Boolean OK;
+            //test to see if the valid method exists
+            OK = AStockItem.StockItemDescriptionValid("4444");
+            Assert.IsFalse(OK);
+        }
+        [TestMethod]
+        //used to test the prsence of the valid method
+        public void StockItemDescriptionMinPlusOne()
+        {
+            //create and instance of the class
+            clsStockItem AStockItem = new clsStockItem();
+
+            Boolean OK;
+            //test to see if the valid method exists
+            OK = AStockItem.StockItemDescriptionValid("pppppp");
+            Assert.IsTrue(OK);
+        }
+        [TestMethod]
+        //test that the Stock Code  validation throws an error when item price is more than 8 characters
         public void StockItemDescriptionMaxPlusOne()
         {
             //create and instance of the class
@@ -370,11 +638,12 @@ namespace CS4u_Test_Framework
             //pad the data to the required number of characters
             SomeText = SomeText.PadLeft(101);
             //test the valid method with a two character string
-            OK = AstockItem.Valid(SomeText);
+            OK = AstockItem.StockCodeValid(SomeText);
             //assert that the outcome should be true
             Assert.IsFalse(OK);
 
         }
+        
         [TestMethod]
         public void StockItemDescriptionExtremeMax()
         {
@@ -388,7 +657,7 @@ namespace CS4u_Test_Framework
             //pad the data to the required number of characters
             SomeText = SomeText.PadLeft(1000);
             //test the valid method with a two character string
-            OK = AStockItem.Valid(SomeText);
+            OK = AStockItem.StockItemDescriptionValid(SomeText);
             //assert that the outcome should be true
             Assert.IsFalse(OK);
         }
@@ -420,19 +689,7 @@ namespace CS4u_Test_Framework
             Assert.AreEqual(AStockItem.StockName, SomeName);
 
         }
-        //[TestMethod]
-        //public void StockNameMinLessOne()
-        //{
-
-        //    //create an instance of the class
-        //    clsStockItem AStockItem = new clsStockItem();
-        //    //create a variable to record the result of the validation test
-        //    Boolean OK;
-        //    //test the valid method with a blank string
-        //    OK = AStockItem.Valid("4");
-        //    //assert that the outcome should be flase
-        //    Assert.IsFalse(OK);
-        //}
+        
         [TestMethod]
         public void StockNameExtremeMax()
         {
@@ -446,7 +703,7 @@ namespace CS4u_Test_Framework
             //pad the data to the required number of characters
             SomeText = SomeText.PadLeft(1000);
             //test the valid method with a two character string
-            OK = AStockItem.Valid(SomeText);
+            OK = AStockItem.StockCodeValid(SomeText);
             //assert that the outcome should be true
             Assert.IsFalse(OK);
         }
@@ -463,7 +720,7 @@ namespace CS4u_Test_Framework
             //pad the data to the required number of characters
             SomeText = SomeText.PadLeft(26);
             //test the valid method with a two character string
-            OK = AstockItem.Valid(SomeText);
+            OK = AstockItem.StockCodeValid(SomeText);
             //assert that the outcome should be true
             Assert.IsFalse(OK);
 
@@ -496,7 +753,7 @@ namespace CS4u_Test_Framework
             //pad the data to the required number of characters
             SomeText = SomeText.PadLeft(21);
             //test the valid method with a two character string
-            OK = AstockItem.Valid(SomeText);
+            OK = AstockItem.StockCodeValid(SomeText);
             //assert that the outcome should be true
             Assert.IsFalse(OK);
 
@@ -514,7 +771,7 @@ namespace CS4u_Test_Framework
             //pad the data to the required number of characters
             SomeText = SomeText.PadLeft(1000);
             //test the valid method with a two character string
-            OK = AStockItem.Valid(SomeText);
+            OK = AStockItem.SupplierNameValid(SomeText);
             //assert that the outcome should be true
             Assert.IsFalse(OK);
         }

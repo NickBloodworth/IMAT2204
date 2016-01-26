@@ -38,19 +38,19 @@ namespace ClassLibrary1
         
 
         public string StockCode { get; set; }
-       /* public Boolean Valid(string StockCode)
+       public Boolean StockCodeValid(String StockCode)
         {
             //var to record any errors found in StockCode assuming all is ok
             Boolean OK = true;
-            //test to see if the StockCode has zero characters
-            if (StockCode.Length == 0)
+            //test to see if the StockCode has less than 1 characters
+            if (StockCode.Length <1)
             {
 
                 //set OK to false
                 OK = false;
             }
 
-            //test to see that the string is no more than 8 characters
+            //test to see that the string is no more than 100 characters
             if (StockCode.Length > 8)
             {
 
@@ -60,11 +60,58 @@ namespace ClassLibrary1
 
             //return the results of all tests
             return OK;
-        }*/
+        }
 
         public string StockLevel { get; set; }
+        public Boolean StockLevelValid(String StockLevel)
+        {
+            //var to record any errors found in Stock Level assuming all is ok
+            Boolean OK = true;
+            //test to see if the stock level is less than 0
+            if (StockLevel.Length <0)
+            {
+
+                //set OK to false
+                OK = false;
+            }
+
+            //test to see that the string is no more than 1000 characters
+            if (StockLevel.Length > 1000)
+            {
+
+                //set OK to false
+                OK = false;
+            }
+
+            //return the results of all tests
+            return OK;
+        }
+
 
         public string StockItemDescription { get; set; }
+        public Boolean StockItemDescriptionValid(String StockItemDescription)
+        {
+            //var to record any errors found in StockCode assuming all is ok
+            Boolean OK = true;
+            //test to see if the StockCode has less than 4 characters characters
+            if (StockItemDescription.Length < 5)
+            {
+
+                //set OK to false
+                OK = false;
+            }
+
+            //test to see that the string is no more than 100 characters
+            if (StockItemDescription.Length > 100)
+            {
+
+                //set OK to false
+                OK = false;
+            }
+
+            //return the results of all tests
+            return OK;
+        }
 
         public string StockName { get; set; }
 
@@ -93,6 +140,16 @@ namespace ClassLibrary1
                 OK = false;
             }
             return OK;
+        }
+
+       // public bool StockCodeValid(string p)
+      //  {
+        //    throw new NotImplementedException();
+        //}
+
+        public bool SupplierNameValid(string SomeText)
+        {
+            throw new NotImplementedException();
         }
     }
 }
