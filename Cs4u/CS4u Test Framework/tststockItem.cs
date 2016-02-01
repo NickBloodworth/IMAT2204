@@ -366,18 +366,7 @@ namespace CS4u_Test_Framework
             OK = AStockItem.PriceValid("12");
             Assert.IsTrue(OK);
         }
-        //[TestMethod]
-        ////used to test the prsence of the valid method
-        //public void StockLevelMinLessOne()
-        //{
-        //    //create and instance of the class
-        //    clsStockItem AStockItem = new clsStockItem();
-
-        //    Boolean OK;
-        //    //test to see if the valid method exists
-        //    OK = AStockItem.StockLevelValid("-1");
-        //    Assert.IsFalse(OK);
-        //}
+        
         [TestMethod]
         //used to test the prsence of the valid method
         public void StockLevelMinBoundary()
@@ -402,19 +391,7 @@ namespace CS4u_Test_Framework
             OK = AStockItem.StockLevelValid("1");
             Assert.IsTrue(OK);
         }
-        //[TestMethod]
-        //public void StockLevelMinLessOne()
-        //{
-
-        //    //create an instance of the class
-        //    clsStockItem AStockItem = new clsStockItem();
-        //    //create a variable to record the result of the validation test
-        //    Boolean OK;
-        //    //test the valid method with a blank string
-        //    OK = AStockItem.Valid("-1");
-        //    //assert that the outcome should be flase
-        //    Assert.IsFalse(OK);
-        //}
+        
         [TestMethod]
         public void StockLevelExtremeMax()
         {
