@@ -114,6 +114,30 @@ namespace ClassLibrary1
         }
 
         public string StockName { get; set; }
+        public Boolean StockNameValid(String StockName)
+        {
+            //var to record any errors found in StockName assuming all is ok
+            Boolean OK = true;
+            //test to see if the StockName has less than 4 characters characters
+            if (StockName.Length < 5)
+            {
+
+                //set OK to false
+                OK = false;
+            }
+
+            //test to see that the string is no more than 100 characters
+            if (StockName.Length > 25)
+            {
+
+                //set OK to false
+                OK = false;
+            }
+
+            //return the results of all tests
+            return OK;
+        }
+
 
         internal bool Find(int StockNo)
         {
@@ -141,15 +165,30 @@ namespace ClassLibrary1
             }
             return OK;
         }
-
-       // public bool StockCodeValid(string p)
-      //  {
-        //    throw new NotImplementedException();
-        //}
-
-        public bool SupplierNameValid(string SomeText)
+        public string SupplierName { get; set; }
+        public Boolean SupplierNameValid(String SupplierName)
         {
-            throw new NotImplementedException();
+            //var to record any errors found in StockName assuming all is ok
+            Boolean OK = true;
+            //test to see if the StockName has less than 4 characters characters
+            if (SupplierName.Length < 5)
+            {
+
+                //set OK to false
+                OK = false;
+            }
+
+            //test to see that the string is no more than 100 characters
+            if (SupplierName.Length > 20)
+            {
+
+                //set OK to false
+                OK = false;
+            }
+            return OK;
         }
+
+       
     }
-}
+    }
+
