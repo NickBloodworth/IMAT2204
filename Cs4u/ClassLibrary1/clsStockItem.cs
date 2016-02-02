@@ -188,7 +188,9 @@ namespace ClassLibrary1
             return OK;
         }
 
-       
+
+
+        public bool Active { get; set; }
     }
     }
 

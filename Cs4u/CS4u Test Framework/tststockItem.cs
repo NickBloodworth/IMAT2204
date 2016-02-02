@@ -882,6 +882,19 @@ namespace CS4u_Test_Framework
             OK = AStockItem.SupplierNameValid("12111");
             Assert.IsTrue(OK);
         }
+
+        [TestMethod]
+        //used to test the presence of the valid method
+        public void ActiveOK()
+        {
+            //create and instance of the class
+            clsStockItem AStockItem = new clsStockItem();
+            Boolean TestData = true;
+            AStockItem.Active = TestData;
+            Assert.AreEqual(TestData, AStockItem.Active);
+        }
+
+
         [TestMethod]
         public void SupplierNameExtremeMax()
         {
