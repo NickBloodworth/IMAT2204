@@ -14,20 +14,21 @@ namespace CS4u_Test_Framework
             clsOrderLine AnOrderLine = new clsOrderLine();
             //test to dsee if it exists
             Assert.IsNotNull(AnOrderLine);
+         }
 
-        }
         [TestMethod]
-        public void OrderNoOK()
+        public void CompanyIDOK()
         {
-            //create an insnace of the class we want to create
+            //create instance of class
             clsOrderLine AnOrderLine = new clsOrderLine();
-            //assign an orderNo property
-            Int32 OrderNo = 123;
-            //assign the data to the property
-            AnOrderLine.OrderNo = OrderNo;
-            //test to see if the to values are the same
-            Assert.AreEqual(AnOrderLine.OrderNo, OrderNo);
+            //create LineCost variable
+            double lineCost = 10.99;
+            //assign lineCost to AnOrderLine.LineCost
+            AnOrderLine.LineCost = lineCost;
+            //see if both variables are the same
+            Assert.AreEqual(AnOrderLine.LineCost, lineCost);
         }
+    }
         [TestMethod]
         public void ValidMethodOK()
         {
