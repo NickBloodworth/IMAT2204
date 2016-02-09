@@ -28,19 +28,8 @@ namespace CS4u_Test_Framework
             //see if both variables are the same
             Assert.AreEqual(AnOrderLine.LineCost, lineCost);
         }
+    
+    
     }
-        [TestMethod]
-        public void ValidMethodOK()
-        {
-            //create an insnace of the class we want to create
-            clsOrderLine AnOrderLine = new clsOrderLine();
-            Boolean OK = false;
-            //create some test data
-            string ItemCode = "item 1";
-            //invoke the method
-            OK = AnOrderLine.Valid(ItemCode);
-            Assert.IsTrue(OK);
-        }
-    }
-
 }
+
