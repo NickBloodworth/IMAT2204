@@ -21,5 +21,7 @@ namespace ClassLibrary1
                 return false;
             }
         }
+
+        public object LineCost { get; set; }
     }
 }
