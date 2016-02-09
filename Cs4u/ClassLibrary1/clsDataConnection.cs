@@ -44,7 +44,7 @@ public class clsDataConnection
         //flag for found
         Boolean Found = false;
         //var to store posn for path splitting
-        Int32 Posn = 0;
+       // Int32 Posn = 0;
         Int32 Counter;
         List<string> DBNames = new List<string>();
         //get the folder for the project
