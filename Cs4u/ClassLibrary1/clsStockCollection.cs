@@ -7,7 +7,41 @@ namespace ClassLibrary1
 {
     public class clsStockCollection
     {
-        //private data member that stores the count of records found
+        //private data member for the AllStock list
+        private List<clsStockItem> allStock;
+       
+        public int Count 
+        
+        {
+            get { 
+                //return the count property of the private list
+                return allStock.Count
+                ;}
+
+            set {
+                //allStock = value;
+                ;}
+        }
+        //public property for AllStock
+        public List<clsStockItem> AllStock
+        { 
+            //getter sends data to requesting code
+
+            get { 
+                //return the private data member
+                return allStock
+                ;}
+
+            set { 
+                //setter accepts data from other objects
+                //assign the incoming value to the private data member
+                allStock = value;
+                ;}
+        }
+    }
+    }
+
+ /*//private data member that stores the count of records found
         private Int32 recordCount;
         //create a private list data member to store the data from the database
         private List<clsStockItem> items = new List<clsStockItem>();
@@ -65,7 +99,5 @@ namespace ClassLibrary1
             {
                 //return record count;
                 return recordCount;
-            }
-        }
-    }
-}
+            }*/
+        //public property for Count
