@@ -58,14 +58,50 @@ namespace ClassLibrary1
             }
         }
 
-        //public property returning the count of records
-        public Int32 Count
-        {
-            get
-            {
-                //return record count;
-                return recordCount;
+        ////public property returning the count of records
+        //public Int32 Count
+        //{
+        //    get
+        //    {
+        //        //return record count;
+        //        return recordCount;
+        //    }
+        //}
+
+        //public class clsStockCollection
+    {
+            //private data member for the list
+            List<clsStockItem> stocklist = new List<clsStockItem>();
+
+            public List<clsStockItem> StockList { 
+                get
+                {//return the private data
+                return stocklist;
+                
+                }
+                set{
+                //set the private data
+                stocklist=value;
+                
+                }
             }
         }
+        public int Count 
+        {
+            get 
+            {
+                //return record count;
+                return stocklist.Count;
+            }
+            set 
+            {
+            }
+        }
+
+        public List<clsStockItem> StockList { get; set; }
+
+        public clsStockItem ThisStockItem { get; set; }
     }
 }
+}
+

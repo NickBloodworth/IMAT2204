@@ -37,7 +37,7 @@ namespace ClassLibrary1
 
         
 
-        public string StockCode { get; set; }
+        public Int32 StockCode { get; set; }
        public Boolean StockCodeValid(String StockCode)
         {
             //var to record any errors found in StockCode assuming all is ok

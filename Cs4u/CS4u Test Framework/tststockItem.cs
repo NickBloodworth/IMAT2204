@@ -171,9 +171,9 @@ namespace CS4u_Test_Framework
             //create an instance of the class
             clsStockItem AStockItem = new clsStockItem();
             //create a variable to store the code of an item
-            string SomeCode;
+            Int32 SomeCode;
             //assign an item code to the variable
-            SomeCode = "12345";
+            SomeCode = 12345;
             //try to send some data to the StockCode property
             AStockItem.StockCode = SomeCode;
             //check to see that the data in the variable and the propery are the sam
