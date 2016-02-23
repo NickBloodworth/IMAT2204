@@ -7,12 +7,19 @@ namespace ClassLibrary1
 {
     public class clsStockCollection
     {
+
+        //public  int Count { get; set; }
+        //public  object StockList { get; set; }
+        public  object ThisStockItem { get; set; }
+
+
         //private data member that stores the count of records found
         private Int32 recordCount;
         //create a private list data member to store the data from the database
-        private List<clsStockItem> items = new List<clsStockItem>();
+        private List<clsStockItem> allStock = new List<clsStockItem>();
         //private data member to connect to the database
         private clsDataConnection myDB = new clsDataConnection();
+
 
         public void FindAllStockItems()
         {
@@ -40,23 +47,44 @@ namespace ClassLibrary1
                 if (StockFound == true)
                 {
                     //add the user to the list
-                    items.Add(NewItem);
+                    allStock.Add(NewItem);
                 }
                 //increment the index
                 Index++;
             }
         }
+        //public constructore for the class
+        public clsStockCollection()
+        {
+
+            //create an instance of the StockItem class to store a stock item
+            clsStockItem AStockItem = new clsStockItem();
+            //set the item
+            AStockItem.StockName = "Windows 2016";
+            //add tge item to the private list of items
+            allStock.Add(AStockItem);
+            //re initialise the AStockItem object to accept a new item
+            AStockItem = new clsStockItem();
+            //set the new item
+            AStockItem.StockName = "windows1954";
+            //add the second item to the private list of items
+            allStock.Add(AStockItem);
+            //the private list now contains two items
+        }
 
         //public list of users
-        public List<clsStockItem> Items
-        {
-            //getter for the property
-            get
-            {
-                //return the list of users
-                return items;
-            }
-        }
+        //public List<clsStockItem> AllStock
+        //{
+        //    //getter for the property
+        //    get
+        //    {
+        //        //return the list of users
+        //        return allStock;
+        //    }
+            //setter accepts data from other objects
+
+
+        
 
         ////public property returning the count of records
         //public Int32 Count
@@ -69,39 +97,51 @@ namespace ClassLibrary1
         //}
 
         //public class clsStockCollection
-    {
+    
             //private data member for the list
-            List<clsStockItem> stocklist = new List<clsStockItem>();
+            private List<clsStockItem> stocklist = new List<clsStockItem>();
 
-            public List<clsStockItem> StockList { 
+            public List<clsStockItem> StockList 
+            { 
                 get
-                {//return the private data
-                return stocklist;
-                
+                {
+                    //return the private data
+                    return allStock;                
                 }
-                set{
-                //set the private data
-                stocklist=value;
-                
+                set
+                {
+                    //set the private data
+                    allStock=value;
                 }
             }
-        }
+        
+        //public  List<clsStockItem> AllStock 
+        //{
+        //    get
+        //    {
+        //        return allStock;
+        //    }
+        //    set
+        //    {
+        //        allStock = value;
+        //    }
+        //}
+
+
         public int Count 
         {
             get 
             {
                 //return record count;
-                return stocklist.Count;
+                return allStock.Count;
             }
             set 
             {
             }
         }
 
-        public List<clsStockItem> StockList { get; set; }
+        //public List<clsStockItem> StockList { get; set; }
 
-        public clsStockItem ThisStockItem { get; set; }
+        //public clsStockItem ThisStockItem { get; set; }
     }
 }
-}
-
