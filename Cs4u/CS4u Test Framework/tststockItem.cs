@@ -912,5 +912,57 @@ namespace CS4u_Test_Framework
             //assert that the outcome should be true
             Assert.IsFalse(OK);
         }
+        [TestMethod]
+        public void DateAddedPropertyOK()
+        {
+            //create an instance of the class
+            clsStockItem AStockItem = new clsStockItem();
+            //create some test data to assign to the property
+            DateTime TestData = DateTime.Now.Date;
+            //assign the data to the property
+            AStockItem.DateAdded = TestData;
+            //test to see that the two values are the same
+            Assert.AreEqual(AStockItem.DateAdded, TestData);
+
+        }
+
+        [TestMethod]
+        public void FindMethodOK()
+        {
+            //create an instance of the class
+            clsStockItem AStockItem = new clsStockItem();
+            //boolean variable to store the result of the validation
+            Boolean Found = false;
+            //create some test data to use with the method
+            Int32 StockCode = 1;
+            //invoke the method
+            Found=AStockItem.Find(StockCode);
+            //test to see that the result is correct
+            Assert.IsTrue(Found);
+
+        }
+
+        [TestMethod]
+        public void TestStockCodeFound()
+        {
+            //create an instance of the class
+            clsStockItem AStockItem = new clsStockItem();
+            //boolean variable to store the result of the search
+            Boolean Found = false;
+            //boolean variable to record if data is OK (assume it is)
+            Boolean OK = true;
+            //create some test data to use with the method
+            Int32 StockCode = 3;
+            //invoke the method
+            Found = AStockItem.Find(StockCode);
+            //check the stock no
+            if(AStockItem.StockCode !=3)
+            {
+
+                OK = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
+        }
     }
 }

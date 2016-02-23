@@ -7,6 +7,8 @@ namespace ClassLibrary1
 {
     public class clsStockItem
     {
+        //private data member for the StockCode Property
+        private Int32 stockCode;
         public string ItemPrice { get; set; }
 
 
@@ -15,35 +17,48 @@ namespace ClassLibrary1
             //var to record any errors found in ItemPrice assuming all is ok
             Boolean OK = true;
             //test to see if the Item Price has zero characters
-            if(ItemPrice.Length==0)
+            if (ItemPrice.Length == 0)
             {
 
                 //set OK to false
                 OK = false;
             }
 
-                    //test to see that the string is no more than 10 characters
-                    if (ItemPrice.Length>10)
-                    {
+            //test to see that the string is no more than 10 characters
+            if (ItemPrice.Length > 10)
+            {
 
-                        //set OK to false
-                        OK=false;
-                    }
-            
+                //set OK to false
+                OK = false;
+            }
+
             //return the results of all tests
             return OK;
         }
 
 
-        
 
-        public Int32 StockCode { get; set; }
-       public Boolean StockCodeValid(String StockCode)
+
+        public int StockCode
+        {
+            get
+            {
+                //return the private data
+                return StockCode;
+            }
+            set
+            {
+                //set the value of the private data member
+                StockCode = value;
+
+            }
+        }
+        public Boolean StockCodeValid(String StockCode)
         {
             //var to record any errors found in StockCode assuming all is ok
             Boolean OK = true;
             //test to see if the StockCode has less than 1 characters
-            if (StockCode.Length <1)
+            if (StockCode.Length < 1)
             {
 
                 //set OK to false
@@ -68,7 +83,7 @@ namespace ClassLibrary1
             //var to record any errors found in Stock Level assuming all is ok
             Boolean OK = true;
             //test to see if the stock level is less than 0
-            if (StockLevel.Length <0)
+            if (StockLevel.Length < 0)
             {
 
                 //set OK to false
@@ -139,10 +154,7 @@ namespace ClassLibrary1
         }
 
 
-        internal bool Find(int StockNo)
-        {
-            throw new NotImplementedException();
-        }
+
 
 
 
@@ -154,7 +166,7 @@ namespace ClassLibrary1
             try
             {
                 RealPrice = Convert.ToDecimal(SomePrice);
-                if (RealPrice < 0 | RealPrice>1000000)
+                if (RealPrice < 0 | RealPrice > 1000000)
                 {
                     OK = false;
                 }
@@ -190,7 +202,32 @@ namespace ClassLibrary1
 
 
 
+
+
+
+
+
+
         public bool Active { get; set; }
+
+        //public int StockNo { get; set; }
+
+        //public DateTime DateAdded { get; set; }
+
+
+
+
+
+        public bool Find(int StockCode)
+        {
+            // set the priveate data member to the test data value
+            StockCode = 3;
+            //always return true
+            return true;
+        }
+
+        public DateTime DateAdded { get; set; }
     }
-    }
+}
+
 

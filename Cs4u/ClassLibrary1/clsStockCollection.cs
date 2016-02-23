@@ -21,56 +21,67 @@ namespace ClassLibrary1
         private clsDataConnection myDB = new clsDataConnection();
 
 
-        public void FindAllStockItems()
+        //public void FindAllStockItems()
+        public clsStockCollection()
         {
             //re-set the connection
-            myDB = new clsDataConnection();
+            clsDataConnection myDB = new clsDataConnection();
+//execute the stored procedure
+            myDB.Execute("sproc_tblStockItem_SelectAll");
+//get the count of records
+            Int32 recordCount = myDB.Count;
+
             //var to store the index
             Int32 Index = 0;
-            //var to store the user number of the current record
-            Int32 StockNo;
-            //var to flag that user was found
-            Boolean StockFound;
-            //execute the stored procedure
-            myDB.Execute("sproc_tblStockItem_SelectAll");
-            //get the count of records
-            recordCount = myDB.Count;
-            //while there are still records to process
+//while there are still records to process
             while (Index < myDB.Count)
+            ////var to store the user number of the current record
+            //Int32 StockNo;
+            ////var to flag that user was found
+            //Boolean StockFound;
+            
+            
+            
             {
-                //create an instance of the user class
-                clsStockItem NewItem = new clsStockItem();
-                //get the user number from the database
-                StockNo = Convert.ToInt32(myDB.DataTable.Rows[Index]["StockNo"]);
-                //find the user by invoking the find method
-                StockFound = NewItem.Find(StockNo);
-                if (StockFound == true)
-                {
-                    //add the user to the list
-                    allStock.Add(NewItem);
-                }
-                //increment the index
+                //create an instance of the stock item class
+                clsStockItem AStockItem = new clsStockItem();
+                //get the stock name
+                AStockItem.StockName = myDB.DataTable.Rows[Index]["StockName"].ToString();
+                //get the primary key
+                AStockItem.StockCode = Convert.ToInt32(myDB.DataTable.Rows[Index]["StockNo"]);
+
+//increment the index
                 Index++;
+                ////get the user number from the database
+                //StockNo = Convert.ToInt32(myDB.DataTable.Rows[Index]["StockNo"]);
+                ////find the user by invoking the find method
+                //StockFound = NewItem.Find(StockNo);
+                //if (StockFound == true)
+                //{
+                //    //add the user to the list
+                //    allStock.Add(NewItem);
+                //}
+                
             }
         }
         //public constructore for the class
-        public clsStockCollection()
-        {
+        //public clsStock Collection()
+        //{
 
-            //create an instance of the StockItem class to store a stock item
-            clsStockItem AStockItem = new clsStockItem();
-            //set the item
-            AStockItem.StockName = "Windows 2016";
-            //add tge item to the private list of items
-            allStock.Add(AStockItem);
-            //re initialise the AStockItem object to accept a new item
-            AStockItem = new clsStockItem();
-            //set the new item
-            AStockItem.StockName = "windows1954";
-            //add the second item to the private list of items
-            allStock.Add(AStockItem);
-            //the private list now contains two items
-        }
+        //    //create an instance of the StockItem class to store a stock item
+        //    clsStockItem AStockItem = new clsStockItem();
+        //    //set the item
+        //    AStockItem.StockName = "Windows 2016";
+        //    //add tge item to the private list of items
+        //    allStock.Add(AStockItem);
+        //    //re initialise the AStockItem object to accept a new item
+        //    AStockItem = new clsStockItem();
+        //    //set the new item
+        //    AStockItem.StockName = "windows1954";
+        //    //add the second item to the private list of items
+        //    allStock.Add(AStockItem);
+        //    //the private list now contains two items
+        //}
 
         //public list of users
         //public List<clsStockItem> AllStock
