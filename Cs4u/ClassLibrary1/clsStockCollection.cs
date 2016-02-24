@@ -48,7 +48,7 @@ namespace ClassLibrary1
                 //get the stock name
                 AStockItem.StockName = myDB.DataTable.Rows[Index]["StockName"].ToString();
                 //get the primary key
-                AStockItem.StockCode = Convert.ToInt32(myDB.DataTable.Rows[Index]["StockNo"]);
+                AStockItem.StockCode = Convert.ToInt32(myDB.DataTable.Rows[Index]["StockCode"]);
 
 //increment the index
                 Index++;
@@ -151,7 +151,17 @@ namespace ClassLibrary1
             }
         }
 
-        //public List<clsStockItem> StockList { get; set; }
+        public int RecordCount
+        {
+            get 
+            {
+                return recordCount;
+            }
+            set
+            {
+                recordCount = value;
+            }
+        }
 
         //public clsStockItem ThisStockItem { get; set; }
     }

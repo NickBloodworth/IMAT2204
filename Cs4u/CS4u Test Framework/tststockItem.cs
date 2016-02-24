@@ -13,158 +13,159 @@ namespace CS4u_Test_Framework
 
             //create an instance of the class
             clsStockItem AStockItem = new clsStockItem();
+            Assert.IsNotNull(AStockItem);
         }
         [TestMethod]
-    
-    //used to test the Item Price property of the class
-    public void ItemPrice()
-    {
 
-        //create an instance of the class
-        clsStockItem AStockItem = new clsStockItem();
-        //create a variable to store the price of an item
-        string SomePrice;
-        //assign an item price to the variable
-        SomePrice = "10.00";
-        //try to send some data to the ItemPrice property
-        AStockItem.ItemPrice = "10.00";
-        //check to see that the data in the variable and the propery are the sam
-        Assert.AreEqual(AStockItem.ItemPrice, SomePrice);
-    }
+        //used to test the Item Price property of the class
+        public void ItemPrice()
+        {
 
-    [TestMethod]
-    //used to test the presence of the valid method
-    public void PriceValidOK()
-    { 
-    //create and instance of the class
-        clsStockItem AStockItem = new clsStockItem();
-        Boolean OK;
-        //test to see if the valid method exists
-        OK = AStockItem.PriceValid("10.10");
-        Assert.IsTrue(OK);
-    }
+            //create an instance of the class
+            clsStockItem AStockItem = new clsStockItem();
+            //create a variable to store the price of an item
+            string SomePrice;
+            //assign an item price to the variable
+            SomePrice = "10.00";
+            //try to send some data to the ItemPrice property
+            AStockItem.ItemPrice = "10.00";
+            //check to see that the data in the variable and the propery are the sam
+            Assert.AreEqual(AStockItem.ItemPrice, SomePrice);
+        }
 
-    [TestMethod]
-    //used to test the presence of the valid method
-    public void PriceExtremeMin()
-    {
-        //create and instance of the class
-        clsStockItem AStockItem = new clsStockItem();
-        
-        Boolean OK;
-        //test to see if the valid method exists
-        OK = AStockItem.PriceValid("-10000000");
-        Assert.IsFalse(OK);
-    }
+        [TestMethod]
+        //used to test the presence of the valid method
+        public void PriceValidOK()
+        {
+            //create and instance of the class
+            clsStockItem AStockItem = new clsStockItem();
+            Boolean OK;
+            //test to see if the valid method exists
+            OK = AStockItem.PriceValid("10.10");
+            Assert.IsTrue(OK);
+        }
 
+        [TestMethod]
+        //used to test the presence of the valid method
+        public void PriceExtremeMin()
+        {
+            //create and instance of the class
+            clsStockItem AStockItem = new clsStockItem();
 
-    [TestMethod]
-    //used to test the presence of the valid method
-    public void PriceMinLessOne()
-    {
-        //create and instance of the class
-        clsStockItem AStockItem = new clsStockItem();
-
-        Boolean OK;
-        //test to see if the valid method exists
-        OK = AStockItem.PriceValid("-0.01");
-        Assert.IsFalse(OK);
-    }
-
-    [TestMethod]
-    //used to test the presence of the valid method
-    public void PriceMinPlusOne()
-    {
-        //create and instance of the class
-        clsStockItem AStockItem = new clsStockItem();
-
-        Boolean OK;
-        //test to see if the valid method exists
-        OK = AStockItem.PriceValid("0.01");
-        Assert.IsTrue(OK);
-    }
+            Boolean OK;
+            //test to see if the valid method exists
+            OK = AStockItem.PriceValid("-10000000");
+            Assert.IsFalse(OK);
+        }
 
 
-    [TestMethod]
-    //used to test the presence of the valid method
-    public void PriceMid()
-    {
-        //create and instance of the class
-        clsStockItem AStockItem = new clsStockItem();
+        [TestMethod]
+        //used to test the presence of the valid method
+        public void PriceMinLessOne()
+        {
+            //create and instance of the class
+            clsStockItem AStockItem = new clsStockItem();
 
-        Boolean OK;
-        //test to see if the valid method exists
-        OK = AStockItem.PriceValid("500000");
-        Assert.IsTrue(OK);
-    }
+            Boolean OK;
+            //test to see if the valid method exists
+            OK = AStockItem.PriceValid("-0.01");
+            Assert.IsFalse(OK);
+        }
 
+        [TestMethod]
+        //used to test the presence of the valid method
+        public void PriceMinPlusOne()
+        {
+            //create and instance of the class
+            clsStockItem AStockItem = new clsStockItem();
 
-    [TestMethod]
-    //used to test the presence of the valid method
-    public void PriceMaxLessOne()
-    {
-        //create and instance of the class
-        clsStockItem AStockItem = new clsStockItem();
-
-        Boolean OK;
-        //test to see if the valid method exists
-        OK = AStockItem.PriceValid("999999.99");
-        Assert.IsTrue(OK);
-    }
-
-
-    [TestMethod]
-    //used to test the presence of the valid method
-    public void PriceMaxBoundary()
-    {
-        //create and instance of the class
-        clsStockItem AStockItem = new clsStockItem();
-
-        Boolean OK;
-        //test to see if the valid method exists
-        OK = AStockItem.PriceValid("1000000.00");
-        Assert.IsTrue(OK);
-    }
-    [TestMethod]
-    //used to test the presence of the valid method
-    public void PriceMinBoundary()
-    {
-        //create and instance of the class
-        clsStockItem AStockItem = new clsStockItem();
-
-        Boolean OK;
-        //test to see if the valid method exists
-        OK = AStockItem.PriceValid("0.01");
-        Assert.IsTrue(OK);
-    }
+            Boolean OK;
+            //test to see if the valid method exists
+            OK = AStockItem.PriceValid("0.01");
+            Assert.IsTrue(OK);
+        }
 
 
-    [TestMethod]
-    //used to test the presence of the valid method
-    public void PriceMaxPlusOne()
-    {
-        //create and instance of the class
-        clsStockItem AStockItem = new clsStockItem();
+        [TestMethod]
+        //used to test the presence of the valid method
+        public void PriceMid()
+        {
+            //create and instance of the class
+            clsStockItem AStockItem = new clsStockItem();
 
-        Boolean OK;
-        //test to see if the valid method exists
-        OK = AStockItem.PriceValid("1000000.01");
-        Assert.IsFalse(OK);
-    }
+            Boolean OK;
+            //test to see if the valid method exists
+            OK = AStockItem.PriceValid("500000");
+            Assert.IsTrue(OK);
+        }
 
 
-    [TestMethod]
-    //used to test the presence of the valid method
-    public void PriceExtremeMax()
-    {
-        //create and instance of the class
-        clsStockItem AStockItem = new clsStockItem();
+        [TestMethod]
+        //used to test the presence of the valid method
+        public void PriceMaxLessOne()
+        {
+            //create and instance of the class
+            clsStockItem AStockItem = new clsStockItem();
 
-        Boolean OK;
-        //test to see if the valid method exists
-        OK = AStockItem.PriceValid("10000000");
-        Assert.IsFalse(OK);
-    }
+            Boolean OK;
+            //test to see if the valid method exists
+            OK = AStockItem.PriceValid("999999.99");
+            Assert.IsTrue(OK);
+        }
+
+
+        [TestMethod]
+        //used to test the presence of the valid method
+        public void PriceMaxBoundary()
+        {
+            //create and instance of the class
+            clsStockItem AStockItem = new clsStockItem();
+
+            Boolean OK;
+            //test to see if the valid method exists
+            OK = AStockItem.PriceValid("1000000.00");
+            Assert.IsTrue(OK);
+        }
+        [TestMethod]
+        //used to test the presence of the valid method
+        public void PriceMinBoundary()
+        {
+            //create and instance of the class
+            clsStockItem AStockItem = new clsStockItem();
+
+            Boolean OK;
+            //test to see if the valid method exists
+            OK = AStockItem.PriceValid("0.01");
+            Assert.IsTrue(OK);
+        }
+
+
+        [TestMethod]
+        //used to test the presence of the valid method
+        public void PriceMaxPlusOne()
+        {
+            //create and instance of the class
+            clsStockItem AStockItem = new clsStockItem();
+
+            Boolean OK;
+            //test to see if the valid method exists
+            OK = AStockItem.PriceValid("1000000.01");
+            Assert.IsFalse(OK);
+        }
+
+
+        [TestMethod]
+        //used to test the presence of the valid method
+        public void PriceExtremeMax()
+        {
+            //create and instance of the class
+            clsStockItem AStockItem = new clsStockItem();
+
+            Boolean OK;
+            //test to see if the valid method exists
+            OK = AStockItem.PriceValid("10000000");
+            Assert.IsFalse(OK);
+        }
         [TestMethod]
         public void StockCode()
         {
@@ -192,9 +193,9 @@ namespace CS4u_Test_Framework
             Assert.IsTrue(OK);
 
         }
-        
+
         [TestMethod]
-       
+
         public void StockCodeExtremeMax()
         {
 
@@ -211,15 +212,15 @@ namespace CS4u_Test_Framework
             //assert that the outcome should be true
             Assert.IsFalse(OK);
         }
-        
+
         [TestMethod]
         //used to test the presence of the valid method
         public void StockCodeMinLessOne()
         {
-           //create and instance of the class
-           clsStockItem AStockItem = new clsStockItem();
+            //create and instance of the class
+            clsStockItem AStockItem = new clsStockItem();
 
-           Boolean OK;
+            Boolean OK;
             //test to see if the valid method exists
             OK = AStockItem.StockCodeValid("");
             Assert.IsFalse(OK);
@@ -284,11 +285,11 @@ namespace CS4u_Test_Framework
             OK = AStockItem.StockCodeValid("4");
             Assert.IsTrue(OK);
         }
-        
+
 
         [TestMethod]
 
-        //used to test the Item Price property of the class
+        //used to test the Stock Level property of the class
         public void StockLevel()
         {
 
@@ -314,7 +315,7 @@ namespace CS4u_Test_Framework
             OK = AStockItem.StockLevelValid("12");
             Assert.IsTrue(OK);
         }
-        
+
         [TestMethod]
         //used to test the presence of the valid method
         public void StockLevelMinBoundary()
@@ -339,7 +340,7 @@ namespace CS4u_Test_Framework
             OK = AStockItem.StockLevelValid("1");
             Assert.IsTrue(OK);
         }
-        
+
         [TestMethod]
         public void StockLevelExtremeMax()
         {
@@ -570,7 +571,7 @@ namespace CS4u_Test_Framework
             Assert.IsFalse(OK);
 
         }
-        
+
         [TestMethod]
         public void StockItemDescriptionExtremeMax()
         {
@@ -588,7 +589,7 @@ namespace CS4u_Test_Framework
             //assert that the outcome should be true
             Assert.IsFalse(OK);
         }
-        
+
         [TestMethod]
         public void StockName()
         {
@@ -605,7 +606,7 @@ namespace CS4u_Test_Framework
             Assert.AreEqual(AStockItem.StockName, SomeName);
 
         }
-        
+
         [TestMethod]
         public void StockNameMid()
         {
@@ -676,8 +677,8 @@ namespace CS4u_Test_Framework
             //assert that the outcome should be true
             Assert.IsTrue(OK);
         }
-        
-        
+
+
         [TestMethod]
         //used to test the presence of the valid method
         public void StockNameValidOK()
@@ -936,7 +937,7 @@ namespace CS4u_Test_Framework
             //create some test data to use with the method
             Int32 StockCode = 1;
             //invoke the method
-            Found=AStockItem.Find(StockCode);
+            Found = AStockItem.Find(StockCode);
             //test to see that the result is correct
             Assert.IsTrue(Found);
 
@@ -956,7 +957,7 @@ namespace CS4u_Test_Framework
             //invoke the method
             Found = AStockItem.Find(StockCode);
             //check the stock no
-            if(AStockItem.StockCode !=3)
+            if (AStockItem.StockCode != 3)
             {
 
                 OK = false;
@@ -964,5 +965,194 @@ namespace CS4u_Test_Framework
             //test to see that the result is correct
             Assert.IsTrue(OK);
         }
+        [TestMethod]
+        public void StockCodePropertyOK()
+        {
+
+            //create an instance of the class
+            clsStockItem AStockItem = new clsStockItem();
+            //create some test data to assign to the property
+            Int32 TestData = 1;
+            //assign the data to the property
+            AStockItem.StockCode = TestData;
+            //test to see that the two values are the same
+            Assert.AreEqual(AStockItem.StockCode, TestData);
+        }
+        [TestMethod]
+        public void ItemPricePropertyOK()
+        {
+
+            //create an instance of the class
+            clsStockItem AStockItem = new clsStockItem();
+            //create some test data to assign to the property
+            decimal TestData = 1;
+            //assign the data to the property
+            AStockItem.ItemPrice = TestData;
+            //test to see that the two values are the same
+            Assert.AreEqual(AStockItem.ItemPrice, TestData);
+        }
+
+        [TestMethod]
+        public void StockLevelPropertyOK()
+        {
+
+            //create an instance of the class
+            clsStockItem AStockItem = new clsStockItem();
+            //create some test data to assign to the property
+            Int32 TestData = 1;
+            //assign the data to the property
+            AStockItem.StockLevel = TestData;
+            //test to see that the two values are the same
+            Assert.AreEqual(AStockItem.StockLevel, TestData);
+        }
+        [TestMethod]
+        public void StockItemDescriptionPropertyOK()
+        {
+
+            //create an instance of the class
+            clsStockItem AStockItem = new clsStockItem();
+            //create some test data to assign to the property
+            string TestData = "something here";
+            //assign the data to the property
+            AStockItem.StockItemDescription = TestData;
+            //test to see that the two values are the same
+            Assert.AreEqual(AStockItem.StockItemDescription, TestData);
+        }
+        [TestMethod]
+        public void StockNamePropertyOK()
+        {
+
+            //create an instance of the class
+            clsStockItem AStockItem = new clsStockItem();
+            //create some test data to assign to the property
+            String TestData = "somename";
+            //assign the data to the property
+            AStockItem.StockName = TestData;
+            //test to see that the two values are the same
+            Assert.AreEqual(AStockItem.StockName, TestData);
+        }
+        [TestMethod]
+        public void SupplierNamePropertyOK()
+        {
+
+            //create an instance of the class
+            clsStockItem AStockItem = new clsStockItem();
+            //create some test data to assign to the property
+            String TestData = "someone";
+            //assign the data to the property
+            AStockItem.SupplierName = TestData;
+            //test to see that the two values are the same
+            Assert.AreEqual(AStockItem.SupplierName, TestData);
+        }
+        [TestMethod]
+        public void TestStockItemDescriptionFound()
+        {
+            //create an instance of the class
+            clsStockItem AStockItem = new clsStockItem();
+            //boolean variable to store the result of the search
+            Boolean Found = false;
+            //boolean variable to record if data is OK (assume it is)
+            Boolean OK = true;
+            //create some test data to use within the method
+            Int32 StockCode = 2;
+            //invoke the method
+            Found = AStockItem.Find(StockCode);
+            //check the property
+            if (AStockItem.StockItemDescription != "Test StockItemDescription")
+            {
+                OK = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
+
+        }
+        [TestMethod]
+        public void TestStockNameFound()
+        {
+            //create an instance of the class
+            clsStockItem AStockItem = new clsStockItem();
+            //boolean variable to store the result of the search
+            Boolean Found = false;
+            //boolean variable to record if data is OK (assume it is)
+            Boolean OK = true;
+            //create some test data to use within the method
+            Int32 StockCode = 2;
+            //invoke the method
+            Found = AStockItem.Find(StockCode);
+            //check the property
+            if (AStockItem.StockName != "Some name")
+            {
+                OK = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
+
+        }
+        [TestMethod]
+        public void TestItemPriceFound()
+        {
+            //create an instance of the class
+            clsStockItem AStockItem = new clsStockItem();
+            //boolean variable to store the result of the search
+            Boolean Found = false;
+            //boolean variable to record if data is OK (assume it is)
+            Boolean OK = true;
+            //create some test data to use with the method
+            decimal ItemPrice = 3;
+            //invoke the method
+            Found = AStockItem.Find(StockCode);
+            //check the stock no
+            if (AStockItem.StockCode != 3)
+            {
+
+                OK = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
+        }
+        [TestMethod]
+        public void TestStockLevelFound()
+        {
+            //create an instance of the class
+            clsStockItem AStockItem = new clsStockItem();
+            //boolean variable to store the result of the search
+            Boolean Found = false;
+            //boolean variable to record if data is OK (assume it is)
+            Boolean OK = true;
+            //create some test data to use with the method
+            Int32 ItemPrice = 3;
+            //invoke the method
+            Found = AStockItem.Find(StockCode);
+            //check the stock no
+            if (AStockItem.StockLevel != 3)
+            {
+
+                OK = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
+        }
+        [TestMethod]
+        public void TestDateAddedFound()
+        {
+            //create an instance of the class
+            clsStockItem AStockItem = new clsStockItem();
+            //boolean variable to record if daa is OK
+            Boolean OK = true;
+            //create some test data to use with the method
+            Int32 StockCode = 3;
+            //invoke the method
+            Found = AStockItem.Find(StockCode);
+            //check the property
+            if (AStockItem.DateAdded !=Convert.ToDateTime("01/04/2016"))
+            {
+                OK = false;
+
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
+        }
+
+        
     }
 }
