@@ -32,10 +32,10 @@ namespace CS4u_Test_Framework
             TestItem.Active = true;
             TestItem.StockCode = 12;
             TestItem.StockName = "Windows";
-            TestItem.ItemPrice = "38.00";
+            TestItem.ItemPrice = 38;
             TestItem.StockItemDescription = "Windows 12, completely rubbish";
             TestItem.SupplierName = "Microsoft";
-            TestItem.StockLevel = "34";
+            TestItem.StockLevel =34;
             //add the item to the test list
             TestList.Add(TestItem);
             //assign the data to the property
@@ -68,9 +68,9 @@ namespace CS4u_Test_Framework
             TestStockItem.StockCode = 1;
             
             TestStockItem.StockItemDescription = "Completely rubbish software";
-            TestStockItem.StockLevel = "12";
+            TestStockItem.StockLevel = 12;
             TestStockItem.StockName = "Microsoft Windows 10";
-            TestStockItem.ItemPrice = "300";
+            TestStockItem.ItemPrice = 300;
             //assign the data to the property
             AllStock.ThisStockItem = TestStockItem;
             //test to see that the tow values are the same
@@ -91,9 +91,9 @@ namespace CS4u_Test_Framework
         TestItem.Active = true;
         TestItem.StockCode = 1;
         TestItem.StockItemDescription = "Completely rubbish software";
-        TestItem.StockLevel = "12";
+        TestItem.StockLevel = 12;
         TestItem.StockName = "Microsoft Windows 10";
-        TestItem.ItemPrice = "300";
+        TestItem.ItemPrice = 300;
             //add the item to the test list
         TestList.Add(TestItem);
             //assign the data to the property

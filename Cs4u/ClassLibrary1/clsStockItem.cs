@@ -147,7 +147,7 @@ namespace ClassLibrary1
             //var to record any errors found in Stock Level assuming all is ok
             Boolean OK = true;
             //test to see if the stock level is less than 0
-            if (StockLevel.Length < 0)
+            if (StockLevel.Length < 1)
             {
 
                 //set OK to false
@@ -223,7 +223,7 @@ namespace ClassLibrary1
 
 
 
-        public bool PriceValid(decimal SomePrice)
+        public bool PriceValid(String SomePrice)
         {
             Boolean OK = true;
             decimal RealPrice;
@@ -334,11 +334,16 @@ namespace ClassLibrary1
                 ;}
             set 
             { 
-                found=value;}
+                found =value;}
         }
 
 
         public bool found { get; set; }
+
+        public bool Find(object StockCode)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
 

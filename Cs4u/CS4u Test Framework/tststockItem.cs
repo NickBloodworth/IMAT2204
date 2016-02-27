@@ -24,11 +24,11 @@ namespace CS4u_Test_Framework
             //create an instance of the class
             clsStockItem AStockItem = new clsStockItem();
             //create a variable to store the price of an item
-            string SomePrice;
+            double SomePrice;
             //assign an item price to the variable
-            SomePrice = "10.00";
+            SomePrice = 10.00;
             //try to send some data to the ItemPrice property
-            AStockItem.ItemPrice = "10.00";
+            AStockItem.ItemPrice = 10;
             //check to see that the data in the variable and the propery are the sam
             Assert.AreEqual(AStockItem.ItemPrice, SomePrice);
         }
@@ -300,7 +300,7 @@ namespace CS4u_Test_Framework
             //assign an stock level to the variable
             SomeLevel = "12";
             //try to send some data to the StockLevel property
-            AStockItem.StockLevel = "12";
+            AStockItem.StockLevel = 12;
             //check to see that the data in the variable and the propery are the same
             Assert.AreEqual(AStockItem.StockLevel, SomeLevel);
         }
@@ -1152,6 +1152,8 @@ namespace CS4u_Test_Framework
             //test to see that the result is correct
             Assert.IsTrue(OK);
         }
+
+
 
         
     }
