@@ -44,7 +44,7 @@ public class clsDataConnection
         //flag for found
         Boolean Found = false;
         //var to store posn for path splitting
-       // Int32 Posn = 0;
+        // Int32 Posn = 0;
         Int32 Counter;
         List<string> DBNames = new List<string>();
         //get the folder for the project
@@ -178,14 +178,14 @@ public class clsDataConnection
         //use the copmmand builder to generate the sql insert delete etc
         commandBuilder = new SqlCommandBuilder(dataChannel);
         //fill the data adapter
-        try
-        {
-            dataChannel.Fill(dataTable);
-        }
-        catch
-        {
-            throw new System.Exception("Could not get the data.  Check that you have the correct name for your stored procedure.");
-        }
+        //try
+        //{
+        dataChannel.Fill(dataTable);
+        //}
+        //catch
+        //{
+        //    throw new System.Exception("Could not get the data.  Check that you have the correct name for your stored procedure.");
+        //}
         //close the connection
         connectionToDB.Close();
         //return the result of the stored procedure

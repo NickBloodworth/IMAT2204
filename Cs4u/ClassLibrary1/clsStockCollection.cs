@@ -48,7 +48,7 @@ namespace ClassLibrary1
                 //get the stock name
                 AStockItem.StockName = myDB.DataTable.Rows[Index]["StockName"].ToString();
                 //get the primary key
-                AStockItem.StockCode = Convert.ToInt32(myDB.DataTable.Rows[Index]["StockCode"]);
+                AStockItem.StockNo = Convert.ToInt32(myDB.DataTable.Rows[Index]["StockNo"]);
 
 //increment the index
                 Index++;
@@ -59,7 +59,7 @@ namespace ClassLibrary1
                 //if (StockFound == true)
                 //{
                 //    //add the user to the list
-                //    allStock.Add(NewItem);
+                allStock.Add(AStockItem);
                 //}
                 
             }

@@ -103,7 +103,7 @@ namespace ClassLibrary1
         }
 
 
-        public int StockCode
+        public int StockNo
         {
             get
             {
@@ -264,44 +264,44 @@ namespace ClassLibrary1
             return OK;
         }
 
-        public bool Active 
-        { 
-            get 
-        { 
-                //return the private data
-            return active;
+        //public bool Active 
+        //{ 
+        //    get 
+        //{ 
+        //        //return the private data
+        //    return active;
                 
-            }
-            set 
-            { 
-                //set the private data
-                active = value;
-                }
-        }
+        //    }
+        //    set 
+        //    { 
+        //        //set the private data
+        //        active = value;
+        //        }
+        //}
 
         //public int StockNo { get; set; }
 
       
-        public bool Find(int StockCode)
+        public bool Find(int StockNo)
         {
             //creat an instanc of the data connection
             clsDataConnection DB = new clsDataConnection();
             //add the parameter for the stock code to search for
-            DB.AddParameter("@StockCode", StockCode);
+            DB.AddParameter("@StockNo", StockNo);
             //execute the stored procedure
-            DB.Execute("sproc_tblStockItem_FilterByStockCode");
+            DB.Execute("sproc_tblStockItem_FilterByStockNo");
             //if one record is found
             if(DB.Count==1)
             {
                 //copy the data from the databas to the private data member
-                stockCode = Convert.ToInt32(DB.DataTable.Rows[0]["StockCode"]);
+                stockCode = Convert.ToInt32(DB.DataTable.Rows[0]["StockNo"]);
                 itemPrice = Convert.ToDecimal(DB.DataTable.Rows[0]["ItemPrice"]);
                 stockLevel=Convert.ToInt32(DB.DataTable.Rows[0]["StockLevel"]);
                 stockItemDescription=Convert.ToString(DB.DataTable.Rows[0]["StockItemDescription"]);
                 stockName = Convert.ToString(DB.DataTable.Rows[0]["StockName"]);
                 supplierName = Convert.ToString(DB.DataTable.Rows[0]["SupplierName"]);
-                dateAdded = Convert.ToDateTime(DB.DataTable.Rows[0]["DateAdded"]);
-                active = Convert.ToBoolean(DB.DataTable.Rows[0]["Active"]);
+                //dateAdded = Convert.ToDateTime(DB.DataTable.Rows[0]["DateAdded"]);
+                //active = Convert.ToBoolean(DB.DataTable.Rows[0]["Active"]);
                 //return that everything worked OK
                 return true;
 
@@ -315,36 +315,34 @@ namespace ClassLibrary1
             
         }
 
-        public DateTime DateAdded 
-        {
-            get
-            {
-                return dateAdded ;
-            }
-            set 
-            { 
-                dateAdded=value;
-            }
-        }
-        public bool Found 
-        {
-            get 
-            {
-                return found
-                ;}
-            set 
-            { 
-                found =value;}
-        }
+        //public DateTime DateAdded 
+        //{
+        //    get
+        //    {
+        //        return dateAdded ;
+        //    }
+        //    set 
+        //    { 
+        //        dateAdded=value;
+        //    }
+        //}
+        //public bool Found 
+        //{
+        //    get 
+        //    {
+        //        return found
+        //        ;}
+        //    set 
+        //    { 
+        //        found =value;}
+        //}
+        
+        
 
 
-        public bool found { get; set; }
-
-        public bool Find(object StockCode)
-        {
-            throw new NotImplementedException();
-        }
+        
     }
 }
+
 
 

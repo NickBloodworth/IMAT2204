@@ -29,8 +29,8 @@ namespace CS4u_Test_Framework
             //create the item of test data
             clsStockItem TestItem = new clsStockItem();
             //set its properties
-            TestItem.Active = true;
-            TestItem.StockCode = 12;
+            //TestItem.Active = true;
+            TestItem.StockNo = 12;
             TestItem.StockName = "Windows";
             TestItem.ItemPrice = 38;
             TestItem.StockItemDescription = "Windows 12, completely rubbish";
@@ -64,8 +64,8 @@ namespace CS4u_Test_Framework
             //create some test data to assign to the property
             clsStockItem TestStockItem = new clsStockItem();
             //set the porpertoies of the test object
-            TestStockItem.Active = true;
-            TestStockItem.StockCode = 1;
+            //TestStockItem.Active = true;
+            TestStockItem.StockNo = 1;
             
             TestStockItem.StockItemDescription = "Completely rubbish software";
             TestStockItem.StockLevel = 12;
@@ -88,8 +88,8 @@ namespace CS4u_Test_Framework
             //create the item of test data
         clsStockItem TestItem = new clsStockItem();
             //set its properties
-        TestItem.Active = true;
-        TestItem.StockCode = 1;
+        //TestItem.Active = true;
+        TestItem.StockNo = 1;
         TestItem.StockItemDescription = "Completely rubbish software";
         TestItem.StockLevel = 12;
         TestItem.StockName = "Microsoft Windows 10";
