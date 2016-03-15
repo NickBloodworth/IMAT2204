@@ -111,6 +111,35 @@ namespace CS4u_Test_Framework
         //    Assert.AreEqual(StockItems.Count, 2);
 
         //}
+        [TestMethod]
+        public void AddMethodOK()
+        {
+
+            // create an instance of the class we want to create
+            clsStockCollection AllStock = new clsStockCollection();
+            //create the item of test data
+            clsStockItem TestItem = new clsStockItem();
+            //var to store the primary key
+            Int32 PrimaryKey = 0;
+            //set it's properties
+            TestItem.StockNo = 1;
+            //TestItem.ItemPrice = "2.50";
+            TestItem.StockName = "Microsoft windows";
+            TestItem.StockItemDescription = "Something really useful";
+            TestItem.StockLevel = 5;
+            TestItem.SupplierName = "Someone really wealthy";
+            //set ThisStockItem to the test data
+            AllStock.ThisStockItem = TestItem;
+            //add the record
+            PrimaryKey = AllStock.Add();
+            //set the primary key of the test data
+            TestItem.StockNo = PrimaryKey;
+            //find the record
+            AllStock.ThisStockItem.Find(PrimaryKey);
+            //test to see that the two values are the same
+            Assert.AreEqual(AllStock.ThisStockItem, TestItem);
+
+        }
     }
         
         }

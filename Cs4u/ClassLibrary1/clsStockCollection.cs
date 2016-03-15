@@ -10,13 +10,14 @@ namespace ClassLibrary1
 
         //public  int Count { get; set; }
         //public  object StockList { get; set; }
-        public  object ThisStockItem { get; set; }
+        
 
 
         //private data member that stores the count of records found
         private Int32 recordCount;
         //create a private list data member to store the data from the database
         private List<clsStockItem> allStock = new List<clsStockItem>();
+        clsStockItem thisStockItem = new clsStockItem();
         //private data member to connect to the database
         private clsDataConnection myDB = new clsDataConnection();
 
@@ -163,6 +164,28 @@ namespace ClassLibrary1
             }
         }
 
-        //public clsStockItem ThisStockItem { get; set; }
+        public clsStockItem ThisStockItem 
+        { 
+            get
+            {
+                //return the private data
+                return thisStockItem;
+            }
+                
+            set{
+                //set the private data
+                thisStockItem=value;
+            }
+                
+        }
+
+        public int Add()
+        {
+            //adds a new record to the database based on the values of thisStockItem
+            //set the primary jey value of the new record
+            thisStockItem.StockNo = 12;
+            //return the primary keyt of the new record
+            return thisStockItem.StockNo;
+        }
     }
 }
