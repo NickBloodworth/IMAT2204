@@ -182,10 +182,19 @@ namespace ClassLibrary1
         public int Add()
         {
             //adds a new record to the database based on the values of thisStockItem
-            //set the primary jey value of the new record
-            thisStockItem.StockNo = 12;
-            //return the primary keyt of the new record
-            return thisStockItem.StockNo;
+            //connect to the database
+            clsDataConnection DB = new clsDataConnection();
+            //set the parameters for the stored procedure
+            //DB.AddParameter("@StockNo", thisStockItem.StockNo);
+            DB.AddParameter("@ItemPrice", thisStockItem.ItemPrice);
+            DB.AddParameter("@StockLevel", thisStockItem.StockLevel);
+            DB.AddParameter("@StockItemDescription", thisStockItem.StockItemDescription);
+            DB.AddParameter("@StockName", thisStockItem.StockName);
+            DB.AddParameter("@SupplierName", thisStockItem.SupplierName);
+
+            
+            //execute the query returning the primary key value
+            return DB.Execute("sproc_tblStockItem_Insert");
         }
     }
 }
