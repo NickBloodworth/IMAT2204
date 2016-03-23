@@ -140,6 +140,74 @@ namespace CS4u_Test_Framework
             Assert.AreEqual(AllStock.ThisStockItem, TestItem);
 
         }
+        [TestMethod]
+        public void DeleteMethodOK()
+        {
+
+            //create an instance of the class
+            clsStockCollection AllStock = new clsStockCollection();
+            //create the item of test data
+            clsStockItem TestItem = new clsStockItem();
+            //var to store the primary key
+            Int32 PrimaryKey = 0;
+            //set its properties
+            TestItem.StockName = "Windows 457";
+            TestItem.StockItemDescription = "Some software for doing stuff";
+            TestItem.StockLevel = 1;
+            TestItem.ItemPrice = 23;
+            TestItem.SupplierName = "Some Supplier";
+            //set ThisStockItem to the test data
+            AllStock.ThisStockItem = TestItem;
+            //add the record
+            PrimaryKey = AllStock.Add();
+            //set the primary key of the test data
+            TestItem.StockNo = PrimaryKey;
+            //find the record
+            AllStock.ThisStockItem.Find(PrimaryKey);
+            //delete the record
+            AllStock.Delete();
+            //now find the record
+            Boolean Found = AllStock.ThisStockItem.Find(PrimaryKey);
+            //test to see that the record was not found
+            Assert.IsFalse(Found);
+        }
+        [TestMethod]
+        public void UpdateMethodOK()
+        {
+            //create an instance of the class
+            clsStockCollection AllStock = new clsStockCollection();
+            //create the item of test data
+            clsStockItem TestItem = new clsStockItem();
+            //var to store the primary key
+            Int32 PrimaryKey = 0;
+            //set its properties
+            TestItem.StockName = "some stock item";
+            TestItem.StockItemDescription = "Some description of something";
+            TestItem.StockLevel = 4;
+            TestItem.ItemPrice = 5;
+            TestItem.SupplierName = "Someone who supplies something LTD";
+            //set ThisStockItem to the test data
+            AllStock.ThisStockItem = TestItem;
+            //add the record
+            PrimaryKey = AllStock.Add();
+            //set the primary key of the test data
+            TestItem.StockNo = PrimaryKey;
+            //modify the test data
+            TestItem.StockName = "Another stock item";
+            TestItem.StockItemDescription = "A load of rubbish";
+            TestItem.StockLevel = 27;
+            TestItem.ItemPrice = 40;
+            TestItem.SupplierName = "Someone else who supplies something LTD";
+            //set the record based on the new test data
+            AllStock.ThisStockItem = TestItem;
+            //update the record
+            AllStock.Update();
+            //find the record
+            AllStock.ThisStockItem.Find(PrimaryKey);
+            //test to see ThisStockItem matches the test data
+            Assert.AreEqual(AllStock.ThisStockItem, TestItem);
+
+        }
     }
         
         }

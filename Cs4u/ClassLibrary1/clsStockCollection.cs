@@ -10,7 +10,7 @@ namespace ClassLibrary1
 
         //public  int Count { get; set; }
         //public  object StockList { get; set; }
-        
+
 
 
         //private data member that stores the count of records found
@@ -27,22 +27,19 @@ namespace ClassLibrary1
         {
             //re-set the connection
             clsDataConnection myDB = new clsDataConnection();
-//execute the stored procedure
+            //execute the stored procedure
             myDB.Execute("sproc_tblStockItem_SelectAll");
-//get the count of records
+            //get the count of records
             Int32 recordCount = myDB.Count;
 
             //var to store the index
             Int32 Index = 0;
-//while there are still records to process
+            //while there are still records to process
             while (Index < myDB.Count)
             ////var to store the user number of the current record
             //Int32 StockNo;
             ////var to flag that user was found
             //Boolean StockFound;
-            
-            
-            
             {
                 //create an instance of the stock item class
                 clsStockItem AStockItem = new clsStockItem();
@@ -51,7 +48,7 @@ namespace ClassLibrary1
                 //get the primary key
                 AStockItem.StockNo = Convert.ToInt32(myDB.DataTable.Rows[Index]["StockNo"]);
 
-//increment the index
+                //increment the index
                 Index++;
                 ////get the user number from the database
                 //StockNo = Convert.ToInt32(myDB.DataTable.Rows[Index]["StockNo"]);
@@ -62,7 +59,7 @@ namespace ClassLibrary1
                 //    //add the user to the list
                 allStock.Add(AStockItem);
                 //}
-                
+
             }
         }
         //public constructore for the class
@@ -93,10 +90,10 @@ namespace ClassLibrary1
         //        //return the list of users
         //        return allStock;
         //    }
-            //setter accepts data from other objects
+        //setter accepts data from other objects
 
 
-        
+
 
         ////public property returning the count of records
         //public Int32 Count
@@ -109,24 +106,24 @@ namespace ClassLibrary1
         //}
 
         //public class clsStockCollection
-    
-            //private data member for the list
-            private List<clsStockItem> stocklist = new List<clsStockItem>();
 
-            public List<clsStockItem> StockList 
-            { 
-                get
-                {
-                    //return the private data
-                    return allStock;                
-                }
-                set
-                {
-                    //set the private data
-                    allStock=value;
-                }
+        //private data member for the list
+        private List<clsStockItem> stocklist = new List<clsStockItem>();
+
+        public List<clsStockItem> StockList
+        {
+            get
+            {
+                //return the private data
+                return allStock;
             }
-        
+            set
+            {
+                //set the private data
+                allStock = value;
+            }
+        }
+
         //public  List<clsStockItem> AllStock 
         //{
         //    get
@@ -140,21 +137,21 @@ namespace ClassLibrary1
         //}
 
 
-        public int Count 
+        public int Count
         {
-            get 
+            get
             {
                 //return record count;
                 return allStock.Count;
             }
-            set 
+            set
             {
             }
         }
 
         public int RecordCount
         {
-            get 
+            get
             {
                 return recordCount;
             }
@@ -164,19 +161,20 @@ namespace ClassLibrary1
             }
         }
 
-        public clsStockItem ThisStockItem 
-        { 
+        public clsStockItem ThisStockItem
+        {
             get
             {
                 //return the private data
                 return thisStockItem;
             }
-                
-            set{
+
+            set
+            {
                 //set the private data
-                thisStockItem=value;
+                thisStockItem = value;
             }
-                
+
         }
 
         public int Add()
@@ -192,9 +190,83 @@ namespace ClassLibrary1
             DB.AddParameter("@StockName", thisStockItem.StockName);
             DB.AddParameter("@SupplierName", thisStockItem.SupplierName);
 
-            
+
             //execute the query returning the primary key value
             return DB.Execute("sproc_tblStockItem_Insert");
+        }
+
+        public void Delete()
+        {
+            //deletes the record pointed to by thisStockItem
+            //connect to the database
+            clsDataConnection DB = new clsDataConnection();
+            //set the parameters for the stored procedure
+            DB.AddParameter("@StockNo", thisStockItem.StockNo);
+            //execute the stored procedure
+            DB.Execute("sproc_tblStockItem_Delete");
+        }
+        ////function for adding new records
+        //void Add()
+        //{
+
+        //    //create an instance of the Stockrecords
+        //    clsStockCollection StockItems = new clsStockCollection();
+        //    //validate the data on the web form
+        //    Boolean OK = StockItems.ThisStockItem.Valid(txtStockName.Text, txtItemPrice.Text, txtItemDescription.Text, txtSupplierName.Text, txtStockLevel.Text);
+
+
+        //    //if the data is OK then add it to the onject
+
+
+        //    if (OK == true)
+        //    {
+
+        //        //get the data entered by the user
+
+        //        StockItems.ThisStockItem.StockName = txtStockName.Text;
+        //        StockItems.ThisStockItem.ItemPrice = txtItemPrice.Text;
+        //        StockItems.ThisStockItem.StockItemDescription = txtStockDescription.Text;
+        //        StockItems.ThisStockItem.StockLevel = txtStockLevel.Text;
+        //        StockItems.ThisStockItem.SupplierName = txtSupplierName.Text;
+        //        //add the record
+        //        StockItems.Add();
+        //    }
+        //    else
+        //    {
+        //        //report an error
+        //        lblError.Text = "There were problems with the data entered";
+        //    }
+
+        //}
+
+        public void Update()
+        {
+            //update an existing record based on the values of thisStockItem
+            //connect to the database
+            clsDataConnection DB = new clsDataConnection();
+            //set the parameters for the stored procedure
+            DB.AddParameter("@StockNo", thisStockItem.StockNo);
+            DB.AddParameter("@ItemPrice", thisStockItem.ItemPrice);
+            DB.AddParameter("@StockLevel", thisStockItem.StockLevel);
+            DB.AddParameter("@StockItemDescription", thisStockItem.StockItemDescription);
+            DB.AddParameter("@StockName", thisStockItem.StockName);
+            DB.AddParameter("@SupplierName", thisStockItem.SupplierName);
+            //execute the stored procedure
+            DB.Execute("sproc_tblStockItem_Update");
+        }
+        void DisplayStockItem()
+        {
+            //create an instance of the StockItems
+            clsStockCollection StockItems = new clsStockCollection();
+            //find the record to update
+            StockItems.ThisStockItem.Find(StockNo);
+            //display the data for this record
+            txtStockName.Text = StockItems.ThisStockItem.StockName;
+            txtStockDescription.Text = StockItems.ThisStockItem.StockItemDescription;
+            txtItemPrice.Text = StockItems.ThisStockItem.ItemPrice;
+            txtSupplierName.Text = StockItems.ThisStockItem.SupplierName;
+            txtStockLevel.Text = StockItems.ThisStockItem.StockLevel;
+            ddlStockItem.SelectedValue = StockItems.ThisStockItem.StockNo.ToString();
         }
     }
 }
