@@ -7,8 +7,12 @@ using System.Web.UI.WebControls;
 using ClassLibrary1;
 
 
+
 public partial class AddStock : System.Web.UI.Page
 {
+
+    Int32 StockNo;
+
     protected void Page_Load(object sender, EventArgs e)
     {
         //get the number of the StockItem to be processede
@@ -60,9 +64,9 @@ public partial class AddStock : System.Web.UI.Page
             //get the data entered by the user
 
             StockItems.ThisStockItem.StockName = txtStockName.Text;
-            StockItems.ThisStockItem.ItemPrice =Convert.ToDecimal( txtItemPrice.Text);
-            StockItems.ThisStockItem.StockItemDescription = txtItemDescription.Text;
-            StockItems.ThisStockItem.StockLevel =Convert.ToInt32( txtStockLevel.Text);
+            StockItems.ThisStockItem.ItemPrice = txtItemPrice.Text;
+            StockItems.ThisStockItem.StockItemDescription = txtStockDescription.Text;
+            StockItems.ThisStockItem.StockLevel = txtStockLevel.Text;
             StockItems.ThisStockItem.SupplierName = txtSupplierName.Text;
             //add the record
             StockItems.Add();
@@ -74,4 +78,42 @@ public partial class AddStock : System.Web.UI.Page
         }
 
     }
+
+
 }
+
+
+
+
+
+////function for adding new records
+//    void Add()
+//{
+
+//    //create an instance of the Stockrecords
+//    clsStockCollection StockItems=new clsStockCollection();
+//        //validate the data on the web form
+//        Boolean OK=StockItems.ThisStockItem.Valid(txtStockName.Text, txtItemPrice.Text, txtItemDescription.Text, txtSupplierName.Text, txtStockLevel.Text);
+
+
+//        //if the data is OK then add it to the onject
+
+
+//        if (OK == true)
+//        {
+
+//            //get the data entered by the user
+
+//            StockItems.ThisStockItem.StockName = txtStockName.Text;
+//            StockItems.ThisStockItem.ItemPrice = txtItemPrice.Text;
+//            StockItems.ThisStockItem.StockItemDescription = txtStockDescription.Text;
+//            StockItems.ThisStockItem.StockLevel = txtStockLevel.Text;
+//            StockItems.ThisStockItem.SupplierName = txtSupplierName.Text;
+//            //add the record
+//            StockItems.Add();
+//        }
+//        else
+//        {
+//            //report an error
+//            lblError.Text = "There were problems with the data entered";
+//        }

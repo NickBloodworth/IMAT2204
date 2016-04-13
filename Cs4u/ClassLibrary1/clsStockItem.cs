@@ -8,7 +8,7 @@ namespace ClassLibrary1
     public class clsStockItem
     {
         //private data members for the Properties
-        private Int32 stockCode;
+        private Int32 stockNo;
         private decimal itemPrice;
         private Int32 stockLevel;
         private string stockItemDescription;
@@ -108,21 +108,21 @@ namespace ClassLibrary1
             get
             {
                 //return the private data
-                return stockCode;
+                return stockNo;
             }
             set
             {
                 //set the value of the private data member
-                stockCode = value;
+                stockNo = value;
 
             }
         }
-        public Boolean StockCodeValid(String StockCode)
+        public Boolean StockNoValid(String StockNo)
         {
             //var to record any errors found in StockCode assuming all is ok
             Boolean OK = true;
             //test to see if the StockCode has less than 1 characters
-            if (StockCode.Length < 1)
+            if (StockNo.Length < 1)
             {
 
                 //set OK to false
@@ -130,7 +130,7 @@ namespace ClassLibrary1
             }
 
             //test to see that the string is no more than 100 characters
-            if (StockCode.Length > 8)
+            if (StockNo.Length > 8)
             {
 
                 //set OK to false
@@ -294,7 +294,7 @@ namespace ClassLibrary1
             if(DB.Count==1)
             {
                 //copy the data from the databas to the private data member
-                stockCode = Convert.ToInt32(DB.DataTable.Rows[0]["StockNo"]);
+                stockNo = Convert.ToInt32(DB.DataTable.Rows[0]["StockNo"]);
                 itemPrice = Convert.ToDecimal(DB.DataTable.Rows[0]["ItemPrice"]);
                 stockLevel=Convert.ToInt32(DB.DataTable.Rows[0]["StockLevel"]);
                 stockItemDescription=Convert.ToString(DB.DataTable.Rows[0]["StockItemDescription"]);
