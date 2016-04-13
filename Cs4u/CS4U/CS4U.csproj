@@ -65,19 +65,19 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="StockControl.aspx" />
     <Content Include="MainInterface.aspx" />
+    <Content Include="StockControl.aspx" />
     <Content Include="AddStock.aspx" />
     <Content Include="Cs4u.sln" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="StockControl.aspx.cs">
-      <DependentUpon>StockControl.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
     <Compile Include="MainInterface.aspx.cs">
       <DependentUpon>MainInterface.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StockControl.aspx.cs">
+      <DependentUpon>StockControl.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="AddStock.aspx.cs">
