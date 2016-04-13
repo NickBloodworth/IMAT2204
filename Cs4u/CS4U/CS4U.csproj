@@ -65,13 +65,17 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="StockControl.aspx" />
     <Content Include="MainInterface.aspx" />
     <Content Include="AddStock.aspx" />
     <Content Include="Cs4u.sln" />
-    <Content Include="StockControl.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="StockControl.aspx.cs">
+      <DependentUpon>StockControl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="MainInterface.aspx.cs">
       <DependentUpon>MainInterface.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -81,13 +85,6 @@
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="StockControl.aspx.cs">
-      <DependentUpon>StockControl.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="StockControl.aspx.designer.cs">
-      <DependentUpon>StockControl.aspx</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ClassLibrary1\ClassLibrary1.csproj">

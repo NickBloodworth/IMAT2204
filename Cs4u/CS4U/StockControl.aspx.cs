@@ -16,7 +16,7 @@ namespace CS4U
 
         protected void btnAddStock_Click(object sender, EventArgs e)
         {
-            //store -1 ontp the sessopmp bject tp omdocate tjos os a mew recprd
+            //store -1 onto the session object to indicate this is an new record
             Session["StockNo"] = -1;
             //redirect to the data entry page
             Response.Redirect("AddStock.aspx");
