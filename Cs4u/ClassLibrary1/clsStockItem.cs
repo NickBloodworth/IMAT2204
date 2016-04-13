@@ -14,8 +14,8 @@ namespace ClassLibrary1
         private string stockItemDescription;
         private string stockName;
         private string supplierName;
-        private DateTime dateAdded;
-        private Boolean active;
+        //private DateTime dateAdded;
+        //private Boolean active;
                 
         
 
